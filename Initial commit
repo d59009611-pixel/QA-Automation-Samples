@@ -1,11 +1,18 @@
-public class UserValidator {
-    // Проверяем, что пароль надежный (минимум 8 знаков)
-    public boolean isSecurePassword(String password) {
-        return password != null && password.length() >= 8;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class UserValidatorTest {
+    UserValidator validator = new UserValidator();
+
+    @Test
+    void checkPassword() {
+        assertTrue(validator.isSecurePassword("mypassword123"));
+        assertFalse(validator.isSecurePassword("123"));
     }
 
-    // Проверяем формат почты
-    public boolean isValidEmail(String email) {
-        return email != null && email.contains("@") && email.contains(".");
+    @Test
+    void checkEmail() {
+        assertTrue(validator.isValidEmail("daler@mail.com"));
+        assertFalse(validator.isValidEmail("daler.com"));
     }
 }
