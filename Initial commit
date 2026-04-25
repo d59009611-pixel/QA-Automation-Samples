@@ -1,0 +1,11 @@
+public class UserValidator {
+    // Проверяем, что пароль надежный (минимум 8 знаков)
+    public boolean isSecurePassword(String password) {
+        return password != null && password.length() >= 8;
+    }
+
+    // Проверяем формат почты
+    public boolean isValidEmail(String email) {
+        return email != null && email.contains("@") && email.contains(".");
+    }
+}
